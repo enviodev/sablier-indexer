@@ -1,0 +1,129 @@
+type EventsSummary {
+  id: ID!
+  approval: [Approval!]! @derivedFrom(field: "eventsSummary")
+  approvalsCount: BigInt!
+  approvalForAll: [ApprovalForAll!]! @derivedFrom(field: "eventsSummary")
+  approvalForAllsCount: BigInt!
+  batchMetadataUpdate: [BatchMetadataUpdate!]!
+    @derivedFrom(field: "eventsSummary")
+  batchMetadataUpdatesCount: BigInt!
+  cancelLockupStream: [CancelLockupStream!]!
+    @derivedFrom(field: "eventsSummary")
+  cancelLockupStreamsCount: BigInt!
+  claimProtocolRevenues: [ClaimProtocolRevenues!]!
+    @derivedFrom(field: "eventsSummary")
+  claimProtocolRevenuessCount: BigInt!
+  # createLockupLinearStream: [CreateLockupLinearStream!]!
+  #   @derivedFrom(field: "eventsSummary")
+  # createLockupLinearStreamsCount: BigInt!
+  metadataUpdate: [MetadataUpdate!]! @derivedFrom(field: "eventsSummary")
+  metadataUpdatesCount: BigInt!
+  renounceLockupStream: [RenounceLockupStream!]!
+    @derivedFrom(field: "eventsSummary")
+  renounceLockupStreamsCount: BigInt!
+  setComptroller: [SetComptroller!]! @derivedFrom(field: "eventsSummary")
+  setComptrollersCount: BigInt!
+  setNFTDescriptor: [SetNFTDescriptor!]! @derivedFrom(field: "eventsSummary")
+  setNFTDescriptorsCount: BigInt!
+  transfer: [Transfer!]! @derivedFrom(field: "eventsSummary")
+  transfersCount: BigInt!
+  transferAdmin: [TransferAdmin!]! @derivedFrom(field: "eventsSummary")
+  transferAdminsCount: BigInt!
+  withdrawFromLockupStream: [WithdrawFromLockupStream!]!
+    @derivedFrom(field: "eventsSummary")
+  withdrawFromLockupStreamsCount: BigInt!
+}
+
+type Approval {
+  id: ID!
+  owner: String!
+  approved: String!
+  tokenId: BigInt!
+  eventsSummary: String!
+}
+type ApprovalForAll {
+  id: ID!
+  owner: String!
+  operator: String!
+  approved: Boolean!
+  eventsSummary: String!
+}
+type BatchMetadataUpdate {
+  id: ID!
+  _fromTokenId: BigInt!
+  _toTokenId: BigInt!
+  eventsSummary: String!
+}
+type CancelLockupStream {
+  id: ID!
+  streamId: BigInt!
+  sender: String!
+  recipient: String!
+  senderAmount: BigInt!
+  recipientAmount: BigInt!
+  eventsSummary: String!
+}
+type ClaimProtocolRevenues {
+  id: ID!
+  admin: String!
+  asset: String!
+  protocolRevenues: BigInt!
+  eventsSummary: String!
+}
+# type CreateLockupLinearStream {
+#   id: ID!
+#   streamId: BigInt!
+#   funder: String!
+#   sender: String!
+#   recipient: String!
+#   amounts: Bytes!
+#   asset: String!
+#   cancelable: Boolean!
+#   range: Bytes!
+#   broker: String!
+#   eventsSummary: String!
+# }
+type MetadataUpdate {
+  id: ID!
+  _tokenId: BigInt!
+  eventsSummary: String!
+}
+type RenounceLockupStream {
+  id: ID!
+  streamId: BigInt!
+  eventsSummary: String!
+}
+type SetComptroller {
+  id: ID!
+  admin: String!
+  oldComptroller: String!
+  newComptroller: String!
+  eventsSummary: String!
+}
+type SetNFTDescriptor {
+  id: ID!
+  admin: String!
+  oldNFTDescriptor: String!
+  newNFTDescriptor: String!
+  eventsSummary: String!
+}
+type Transfer {
+  id: ID!
+  from: String!
+  to: String!
+  tokenId: BigInt!
+  eventsSummary: String!
+}
+type TransferAdmin {
+  id: ID!
+  oldAdmin: String!
+  newAdmin: String!
+  eventsSummary: String!
+}
+type WithdrawFromLockupStream {
+  id: ID!
+  streamId: BigInt!
+  to: String!
+  amount: BigInt!
+  eventsSummary: String!
+}

@@ -1,0 +1,50 @@
+name: SablierV2LockupLinear
+description: sablier
+networks:
+  - id: 10
+    start_block: 0
+    contracts:
+      - name: SablierV2LockupLinear
+        handler: src/EventHandlers.ts
+        address:
+          - 0xB923aBdCA17Aed90EB5EC5E407bd37164f632bFD
+        events:
+          - event: Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
+            requiredEntities:
+              - name: EventsSummary
+          - event: ApprovalForAll(address indexed owner, address indexed operator, bool approved)
+            requiredEntities:
+              - name: EventsSummary
+          - event: BatchMetadataUpdate(uint256 _fromTokenId, uint256 _toTokenId)
+            requiredEntities:
+              - name: EventsSummary
+          - event: CancelLockupStream(uint256 indexed streamId, address indexed sender, address indexed recipient, uint128 senderAmount, uint128 recipientAmount)
+            requiredEntities:
+              - name: EventsSummary
+          - event: ClaimProtocolRevenues(address indexed admin, address indexed asset, uint128 protocolRevenues)
+            requiredEntities:
+              - name: EventsSummary
+          # - event: CreateLockupLinearStream(uint256 streamId, address funder, address indexed sender, address indexed recipient, (uint128,uint128,uint128) amounts, address indexed asset, bool cancelable, (uint40,uint40,uint40) range, address broker)
+          #   requiredEntities:
+          #   - name: EventsSummary
+          - event: MetadataUpdate(uint256 _tokenId)
+            requiredEntities:
+              - name: EventsSummary
+          - event: RenounceLockupStream(uint256 indexed streamId)
+            requiredEntities:
+              - name: EventsSummary
+          - event: SetComptroller(address indexed admin, address oldComptroller, address newComptroller)
+            requiredEntities:
+              - name: EventsSummary
+          - event: SetNFTDescriptor(address indexed admin, address oldNFTDescriptor, address newNFTDescriptor)
+            requiredEntities:
+              - name: EventsSummary
+          - event: Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
+            requiredEntities:
+              - name: EventsSummary
+          - event: TransferAdmin(address indexed oldAdmin, address indexed newAdmin)
+            requiredEntities:
+              - name: EventsSummary
+          - event: WithdrawFromLockupStream(uint256 indexed streamId, address indexed to, uint128 amount)
+            requiredEntities:
+              - name: EventsSummary
